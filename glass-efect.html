@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body, main::before{
+            z-index: -1;
+            background: url("imgs/bg.jpg") 0 / cover fixed;
+        }
+        main{
+            position: relative;
+            width: 35em;
+            height: 15em;
+            margin: 10em auto;
+            border-radius: 0.5em;
+            padding: 1em 1.2em;
+            color: #000;
+            font-family: cursive;
+            word-break: break-all;
+            cursor: pointer;
+            background: hsla(0, 0%, 100%, .3);
+        }
+        main::before{
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            -webkit-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(20px);
+/*            background: #eee;*/
+            margin: 20px;
+        }
+        main footer{
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+   
+   <main>
+       <blockquote>
+           The only way to get rid of temptation is yeild to it! The only way to get rid of temptation is yeild to it! The only way to get rid of temptation is yeild to it! The only way to get rid of temptation is yeild to it! The only way to get rid of temptation is yeild to it! The only way to get rid of temptation is yeild to it!
+       </blockquote>
+       <footer>--
+           <cite>
+               Oscar Wilde,
+               The picture of Dorian Gray
+           </cite>
+       </footer>
+   </main>
+    
+</body>
+</html>

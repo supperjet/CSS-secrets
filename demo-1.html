@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        button{
+            padding: 12px 32px;
+            border: 1px solid #446d88;
+            border-radius: 4px;
+            background: #58a linear-gradient(#77a0bb, #58a);
+            box-shadow: 0 1px 5px gray;
+            color: white;
+            text-shadow: 0 -1px 1px #335166;
+            font-size: 25px;
+            line-height: 30px; 
+        }
+       /*   重构1.值互相依赖
+            font-size: 20px;
+            line-height: 1.5;
+            重构2.字体使用百分比或em
+            font-size: 125%;
+            line-height: 1.5;
+            重构3.所有的数值使用em
+        */
+        button{
+            padding: 0.6em 1.6em;
+            border: 1px solid #446d88;
+            border-radius: 0.2em;
+            background: #58a linear-gradient(#77a0bb, #58a);
+            box-shadow: 0 0.05px .25px gray;
+            color: white;
+            text-shadow: 0 -.05px .05px #335166;
+            font-size: 125%;
+            line-height: 1.5; 
+        }
+        /*
+        重构4.使用HSLA代替rgba
+        */
+        button{
+            padding: 0.6em 1.6em;
+            border: 1px solid #446d88;
+            border-radius: 0.2em;
+            background: #58a linear-gradient(hsla(0, 0%,100%,.2), transparent);
+            box-shadow: 0 0.05px .25px rgba(0, 0, 0, .5);
+            color: white;
+            text-shadow: 0 -.05px .05px rgba(0, 0, 0, .5);
+            font-size: 125%;
+            line-height: 1.5; 
+        }
+        hr{
+            height: 0.5em;
+            background: currentColor;
+        }
+    </style>
+</head>
+<body>
+   <button>button</button>
+   <hr>
+   <hr>
+    
+</body>
+</html>

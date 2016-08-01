@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>filter</title>
+  <style>
+     div{
+       margin: 50px 400px;
+     }
+     img{
+      width: 400px;
+      height: 300px;
+      padding: 0.4em;
+      margin: 0.5em;
+      border: 1px dashed #444;
+      border-radius: 5px;
+      -webkit-transition: -webkit-filter .5s ease;
+      -webkit-filter: none;
+    }
+    #choose{
+      display: block;
+      margin: 20px 100px;
+      width: 200px;
+      height: 40px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      outline: none;
+    }
+    #ran{
+      display: inline;
+      margin-left: 130px;
+    }
+    #ran::before{
+      content: '0';
+    }
+    #ran::after{
+      content: '10';
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="imgs/test.jpg" id="num1">
+    <input id="ran" type="range" min="0" max="10" value="5" step="0.1">
+    <select id="choose">
+      <option value="none">none</option>
+      <option value="blur(1px)">blur</option>
+      <option value="brightness">brightness</option>
+      <option value="opacity">opacity</option>
+      <option value="contrast">contrast</option>
+      <option value="sepia">sepia</option>
+      <option value="invert">invert</option>
+      <option value="saturate">saturate</option>
+      <option value="hue-rotate(90deg)">hue-rotate</option>
+      <option value="drop-shadow(5px 5px 5px #ccc)">drop-shadow</option>
+    </select>
+
+  </div>
+
+  <script>
+    window.onload = function(){
+      var img = document.getElementById('num1'),
+          choose = document.getElementById('choose'),
+          ranValue = document.getElementById('ran');
+
+          img.style.webkitFilter = "none";
+          ranValue.addEventListener('change', function(e){
+            if(choose.value == "blur(1px)"){
+              img.style.webkitFilter = "blur("+ranValue.value+"px)";
+            }else if(choose.value == "hue-rotate"){
+              img.style.webkitFilter = choose.value + "("+(ranValue.value)*9+"deg)";
+              console.log(choose.value + "("+(ranValue.value)*9+"deg)");
+            }else{
+              img.style.webkitFilter = choose.value+"("+ranValue.value+")";
+            }
+          })
+          choose.addEventListener("change", function(e){
+            img.style.webkitFilter = "none";
+            img.style.webkitFilter = choose.value;
+          })
+    }
+
+  </script>
+
+
+</body>
+</html>
